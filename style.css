@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Luckiest Guy";
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-image: url(images/Document\ To\ Do\ list\ beige\,\ rouge\ et\ violet\ mignon\ fleur.png);
+    height: 100%;
+}
+
+.top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem;
+}
+
+.top a{
+    font-size: 3rem;
+    color: #bd83de;
+}
+.top a:hover{
+    color: #a46dc5;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titre{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.titre p{
+    color: #bd83de;
+    font-size: 2.5rem;
+}
+
+.titre h1{
+    color: #ff5757;
+    font-size: 4.5rem;
+}
+
+.add{
+    display: flex;
+    align-items: center;
+}
+
+.add input{
+    border: none;
+    padding: 1rem;
+    background-color: rgb(224, 224, 224);
+    border-radius: 3rem;
+}
+
+.add button{
+    background: none;
+    border: none;
+    background-color: #bd83de;
+    color: white;
+    padding: 1rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+.add button:hover{
+    background-color: #a46dc5;
+}
+
+.remove button{
+    background: none;
+    border: none;
+    background-color: #ff5757;
+    color: white;
+    padding: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+.remove button:hover{
+    background-color: #f83b3b;
+}
+
+.remove{
+    margin-top: 3rem;
+}
+
