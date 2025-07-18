@@ -1,5 +1,41 @@
 <?php 
 session_start();
+
+$user = "root";
+$pass = "root";
+
+try
+
+{
+$bdd = new PDO('mysql:host=127.0.0.1;port=3306;dbname=app-database', $user, $pass);
+}
+
+catch (Exception $e)
+
+{
+
+    die('Erreur : ' . $e->getMessage());
+
+}
+
+$acount_id = 0;
+
+$tache = $_POST['tache'];
+
+if(isset($tache)){
+
+    $addtaskbdd = $bdd->prepare('INSERT INTO task(task,acount_id) VALUES (:task,:acount_id)');
+    $addtaskbdd->execute([
+        'task' => $tache,
+        'acount_id'=> $acount_id
+    ]);
+
+}
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>

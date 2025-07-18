@@ -1,5 +1,26 @@
 <?php
 session_start();
+
+$user = "root";
+$pass = "root";
+
+try
+
+{
+$bdd = new PDO('mysql:host=127.0.0.1;port=3306;dbname=app-database', $user, $pass);
+}
+
+catch (Exception $e)
+
+{
+
+    die('Erreur : ' . $e->getMessage());
+
+}
+
+$mail = $_POST['email'];
+$mdp = $_POST['password'];
+
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +50,11 @@ session_start();
             <form action="login.php" method="post">
                 <div class="email">
                     <p>Votre Email :</p>
-                    <input type="email" name="email" placeholder="mail:">
+                    <input type="email" name="email" placeholder="mail:" required>
                 </div>
                 <div class="mdp">
                     <p>Votre Mot de passe :</p>
-                    <input type="password" name="password" placeholder="Mot De Passe">
+                    <input type="password" name="password" placeholder="Mot De Passe" required>
                 </div>
                 <div class="submit">
                      <button type="submit">Se connecter</button>
