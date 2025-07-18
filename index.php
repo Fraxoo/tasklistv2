@@ -11,7 +11,7 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-$acount_id = 0;
+
 
 $tache = $_POST['tache'];
 
@@ -20,11 +20,13 @@ if (isset($tache)) {
     $addtaskbdd = $bdd->prepare('INSERT INTO task(task,acount_id) VALUES (:task,:acount_id)');
     $addtaskbdd->execute([
         'task' => $tache,
-        'acount_id' => $acount_id
+        'acount_id' => $_SESSION['id']
     ]);
 }
 
-
+$taskbdd = $bdd->query('SELECT * FROM task');
+$taskbdd->execute();
+$tasks = $taskbdd->fetchAll();
 
 
 
@@ -76,6 +78,18 @@ if (isset($tache)) {
             </form>
         </div>
 
+        <div class="list">
+            <?php foreach ($tasks as $task): ?>
+                <?php if ($_SESSION['id'] == $task['acount_id']): ?>
+                    <div class="tasks">
+                        <form action="/" method="post">
+                            <input type="checkbox">
+                            <?= $task['task'] ?>
+                        </form>
+                    </div>
+                <?php endif ?>
+            <?php endforeach ?>
+        </div>
         <div class="remove">
             <button>Supprimer Tache</button>
         </div>
