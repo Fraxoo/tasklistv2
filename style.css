@@ -104,4 +104,28 @@ body{
     font-size: 4rem;
     color: #a46dc5;
     margin: 4rem;
+    padding: 10px;
+
+}
+
+.top2{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+}
+
+.deco{
+    position: absolute;
+    right: 10rem;
+}
+.deco a{
+    color: #bd83de;
+    font-size: 2rem;
+}
+
+
+@media only screen and (min-width: 600px) {
+    
+
 }
