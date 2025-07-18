@@ -11,6 +11,15 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
+if (isset($_POST['check'])) {
+foreach ($_POST['check'] as $checkid) {
+$del = $bdd->prepare('DELETE FROM task WHERE id = :id AND acount_id = :acount_id');
+$del->execute([
+   'id' => $checkid,
+   'acount_id' => $_SESSION['id']
+]);
+}
+}
 
 
 $tache = $_POST['tache'];
@@ -80,20 +89,27 @@ $tasks = $taskbdd->fetchAll();
 
         <div class="list">
             <?php foreach ($tasks as $task): ?>
+
                 <?php if ($_SESSION['id'] == $task['acount_id']): ?>
+
+                    <form action="/" method="post">
+
                     <div class="tasks">
-                        <form action="/" method="post">
-                            <input type="checkbox">
+
+                        
+
+                            <input type="checkbox" name="check[]" value=<?php echo $task['id']?>>
+
                             <?= $task['task'] ?>
-                        </form>
+                        
                     </div>
                 <?php endif ?>
             <?php endforeach ?>
         </div>
         <div class="remove">
-            <button>Supprimer Tache</button>
+            <button type="submit">Supprimer Tache</button>
         </div>
-
+        </form>
 
     </div>
 

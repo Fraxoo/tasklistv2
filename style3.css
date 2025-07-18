@@ -82,6 +82,14 @@ body{
     margin-top: 0.5rem;
 }
 
+.action button:hover{
+    color: #a46dc5;
+}
+
+.action a:hover{
+    color: #a46dc5;
+}
+
 
 .deja{
     margin-top: 1rem;

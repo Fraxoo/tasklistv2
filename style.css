@@ -115,6 +115,10 @@ body{
     position: relative;
 }
 
+.top2 a:hover{
+    color: #a46dc5;
+}
+
 .deco{
     position: absolute;
     right: 10rem;
