@@ -36,6 +36,7 @@ if(isset($tache)){
 
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -52,12 +53,17 @@ if(isset($tache)){
 
 
 <body>
-    
+<?php if(!isset($_SESSION['id'])):?>
+
 <div class="top">
     <a href="register.php">S'inscrire</a>
     <a href="login.php">Se connecter</a>
 </div>
-
+<?php else: ?>
+<div class="nom">
+    <p>Bonjour <?= $_SESSION['prenom']?></p>
+</div>
+<?php endif ?>
 <div class="main">
 
     <div class="titre">

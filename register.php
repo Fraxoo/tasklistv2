@@ -42,7 +42,7 @@ if(isset($nom,$prenom,$mail,$password)){
         'mail'=>$mail,
         'password'=>$password
     ]);
-
+    header("Location: login.php");
 }
 }
 

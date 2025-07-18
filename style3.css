@@ -25,6 +25,10 @@ body{
 
 }
 
+.erreur{
+    color: #ff5757;
+}
+
 .acceuil a{
     color: #bd83de;
     text-decoration: none;

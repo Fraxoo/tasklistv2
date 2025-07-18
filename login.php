@@ -21,6 +21,24 @@ catch (Exception $e)
 $mail = $_POST['email'];
 $mdp = $_POST['password'];
 
+if (isset($mail, $mdp)) {
+
+$mailbdd = $bdd->prepare('SELECT * FROM account WHERE mail = :mail');
+$mailbdd->execute([
+    'mail'=>$mail
+]);
+
+$user = $mailbdd->fetch(pdo::FETCH_ASSOC);
+
+ if ($user && password_verify($mdp, $user['password'])) {
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['prenom'] = $user['prenom'];
+        header("Location: index.php");
+        exit();
+    } else {
+        $erreur = "Email ou mot de passe incorrect";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +73,9 @@ $mdp = $_POST['password'];
                 <div class="mdp">
                     <p>Votre Mot de passe :</p>
                     <input type="password" name="password" placeholder="Mot De Passe" required>
+                </div>
+                <div class="erreur">
+                    <?= $erreur?>
                 </div>
                 <div class="submit">
                      <button type="submit">Se connecter</button>
