@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-$user = "root";
-$pass = "root";
+$user = "john-hardy";
+$pass = "userjohnhardy";
 
 try {
-    $bdd = new PDO('mysql:host=127.0.0.1;port=3306;dbname=app-database', $user, $pass);
+    $bdd = new PDO('mysql:john-hardy.students-laplateforme.io;port=3306;dbname=john-hardy_tasklistv2', $user, $pass);
 } catch (Exception $e) {
 
     die('Erreur : ' . $e->getMessage());
